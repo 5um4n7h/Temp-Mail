@@ -7,6 +7,9 @@ import android.content.ContentValues.TAG
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.view.animation.AccelerateInterpolator
+import android.view.animation.AnimationUtils
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -93,7 +96,10 @@ class MainActivity : AppCompatActivity() {
                     rbDomain3.text = domain3
                     rbDomain4.text = domain4
 
-                    rgDomains.isVisible =true
+                    rgDomains.visibility   = View.VISIBLE
+                    val animation = AnimationUtils.loadAnimation(this, R.anim.fade_in)
+                    //starting the animation
+                    rgDomains.startAnimation(animation)
                     rbDomain1.isChecked = true
                     btnCreateMail.isEnabled = true
 
